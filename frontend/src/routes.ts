@@ -11,10 +11,6 @@ export const routes: RouteDefinition[] = [
     component: Home,
   },
   {
-    path: '/findmypet',
-    component: FindMyPet
-  },
-  {
     path: '/pet/:id',
     component: Pet
   },
