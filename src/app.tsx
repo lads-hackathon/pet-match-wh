@@ -1,9 +1,7 @@
 import type { Component } from 'solid-js';
-import { Link, useRoutes, useLocation } from '@solidjs/router';
+import { Link, useRoutes } from '@solidjs/router';
 
 import { routes } from './routes';
-import paw from './images/paw.svg';
-import styles from './app.module.css'
 import Toggle from './components/toggle';
 
 const App: Component = () => {

@@ -10,5 +10,7 @@ export default defineConfig({
   build: {
     target: 'esnext',
   },
-  base: process.env.GITHUB_WORKFLOW ? '/pet-match-wh/' : '/'
+  appType: 'mpa',
+
+  base: process.env.GITHUB_WORKFLOW !== undefined ? '/pet-match-wh/' : '/'
 });

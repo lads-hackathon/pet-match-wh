@@ -16,12 +16,12 @@ jobs:
         uses: actions/setup-node@v3.4.1
 
       - name: Install dependencies
-        run: cd frontend && npm i
+        run: npm i
 
       - name: Build site
-        run: cd frontend && npm run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          folder: frontend/dist
+          folder: dist
