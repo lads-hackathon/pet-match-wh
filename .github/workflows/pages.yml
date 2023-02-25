@@ -15,16 +15,13 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3.4.1
 
-      - name: Change directory
-        run: cd frontend
-
       - name: Install dependencies
-        run: npm i
+        run: cd frontend && npm i
 
       - name: Build site
-        run: npm run build
+        run: cd frontend && npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.0
         with:
-          folder: dist
+          folder: frontend/dist
