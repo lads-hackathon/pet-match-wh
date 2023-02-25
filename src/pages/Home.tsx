@@ -123,7 +123,7 @@ export default function Home() {
       <div class="m-6">
         <small>TOP RESULTS</small>
         
-        <Show when={ !breeds.loading && selectedTemperaments.length != 0 && allowedPets.length != 0 } fallback={ <p class="text-gray-500 text-center mt-1/4">Nothing to show; select traits</p> }>
+        <Show when={ !breeds.loading && selectedTemperaments.length != 0 && allowedPets.length != 0 && getMatchingAlgo(matchingAlgo())(selectedTemperaments, breeds(), allowedPets, 10).length != 0 } fallback={ <p class="text-gray-500 text-center mt-1/4">Nothing to show; select traits</p> }>
           <For each={ getMatchingAlgo(matchingAlgo())(selectedTemperaments, breeds(), allowedPets, 10) }>
             {(breed, index) => (
               <Link href={`/pet/${breed.id}`} class="no-underline text-black dark:text-gray-300">
