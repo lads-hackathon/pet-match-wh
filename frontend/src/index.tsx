@@ -5,7 +5,13 @@ import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 import App from './app';
 
+export const ROOT_URL = '/';
+
 const root = document.getElementById('root');
+
+if (localStorage.getItem('dark') === 'true') {
+  document.body.classList.add('dark');
+}
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(
