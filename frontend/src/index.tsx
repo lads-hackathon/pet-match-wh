@@ -5,7 +5,7 @@ import { render } from 'solid-js/web';
 import { Router } from '@solidjs/router';
 import App from './app';
 
-export const ROOT_URL = '/';
+export const ROOT_URL = location.href.includes('github') ? '/pet-match-wh/' : '/';
 
 const root = document.getElementById('root');
 
