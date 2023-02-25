@@ -2,7 +2,7 @@
 import 'windi.css';
 
 import { render } from 'solid-js/web';
-import { Router } from '@solidjs/router';
+import { hashIntegration, Router } from '@solidjs/router';
 import App from './app';
 
 export const ROOT_URL = location.href.includes('github') ? '/pet-match-wh/' : '/';
@@ -21,7 +21,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(
   () => (
-    <Router>
+    <Router base={ROOT_URL} source={hashIntegration()}>
       <App />
     </Router>
   ),
