@@ -10,4 +10,5 @@ export default defineConfig({
   build: {
     target: 'esnext',
   },
+  base: process.env.GITHUB_WORKFLOW ? '/pet-match-wh/' : '/'
 });
