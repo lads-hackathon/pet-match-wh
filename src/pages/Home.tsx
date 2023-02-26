@@ -63,12 +63,12 @@ export default function Home() {
   const [ matchingAlgo, setMatchingAlgo ] = createSignal(MatchingAlgos.BEST);
 
   return (
-    <div class="grid grid-cols-2 dark:bg-dark-600 dark:text-gray-100">
+    <div class="grid grid-cols-1 md:grid-cols-2 dark:bg-dark-600 dark:text-gray-100">
       <div class="m-6 flex flex-col gap-2">
         <div>
           <small>MATCHING</small>
           
-          <div class="grid grid-cols-2 gap-2">
+          <div class="grid grid-cols-1 md:grid-cols-2 grid-cols-2 gap-2">
             <button class={`${matchingAlgo() === MatchingAlgos.BEST ? 'bg-sky-300 dark:bg-sky-800' : 'bg-gray-100 dark:bg-dark-200'} p-4 rounded-xl transition-colors duration-150`} onClick={() => setMatchingAlgo(MatchingAlgos.BEST)}>Best</button>
             <button class={`${matchingAlgo() === MatchingAlgos.PERFECT ? 'bg-sky-300 dark:bg-sky-800' : 'bg-gray-100 dark:bg-dark-200'} p-4 rounded-xl transition-colors duration-150`} onClick={() => setMatchingAlgo(MatchingAlgos.PERFECT)}>Perfect</button>
           </div>
@@ -77,8 +77,8 @@ export default function Home() {
         <div>
           <small>WHISKERED FRIENDS</small>
           
-          <div class="grid grid-cols-2 gap-2">
-            <Toggle default={true} text="Cats" onOn={ e => {
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+            <Toggle takeUpWidth={true} default={true} text="Cats" onOn={ e => {
               setAllowedPets([...allowedPets, 'cat']);
             }} onOff={e => {
               let i = allowedPets.findIndex(t => t === 'cat');
@@ -86,7 +86,7 @@ export default function Home() {
               setAllowedPets(allowedPets.filter((_, index) => index !== i));
             }} />
 
-            <Toggle default={true} text="Dogs" onOn={ e => {
+            <Toggle takeUpWidth={true} default={true} text="Dogs" onOn={ e => {
               setAllowedPets([...allowedPets, 'dog']);
             }} onOff={e => {
               let i = allowedPets.findIndex(t => t === 'dog');
@@ -100,12 +100,12 @@ export default function Home() {
           <small>TRAITS</small>
           <input class="w-full p-4 border-1 border-gray-400 dark:border-gray-700 placeholder-gray-400 focus:border-gray-800 dark:focus:border-gray-400 rounded-xl bg-gray-100 dark:bg-dark-200" type="text" placeholder="Search for traits" onKeyUp={ e => setSearchTerm(e.currentTarget.value.toLocaleLowerCase()) } />
         
-          <div class="grid grid-cols-4 my-2">
+          <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 my-2 h-48 md:h-full overflow-auto">
             <For each={temperaments()}>
               {(temperament: string, i) => (
                 <Show when={ searchTerm().length == 0 || temperament.toLowerCase().includes(searchTerm()) }>
                   <div class="m-1">
-                    <Toggle default={false} text={temperament} onOn={e => {
+                    <Toggle takeUpWidth={true} default={false} text={temperament} onOn={e => {
                       setSelectedTemperaments([...selectedTemperaments, temperament]);
                     }} onOff={e => {
                       let i = selectedTemperaments.findIndex(t => t === temperament);

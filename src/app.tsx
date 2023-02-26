@@ -9,13 +9,13 @@ const App: Component = () => {
 
   return (
     <div>
-      <nav class="p-4 bg-gray-100 dark:bg-dark-800">
+      <nav class="flex justify-center sm:justify-start items-center flex-col sm:flex-row p-4 bg-gray-100 dark:bg-dark-800">
         <Link href="/" class="text-5xl font-bold p-4 text-black dark:text-white no-underline fill-white" style="font-family: 'Righteous', 'Inter', sans-serif;">
           PETFINDER
         </Link>
 
-        <div class="float-right">
-          <Toggle default={localStorage.getItem('dark') === 'true'} onOn={e => {
+        <div class="sm:ml-auto ml-0">
+          <Toggle takeUpWidth={false} default={localStorage.getItem('dark') === 'true'} onOn={e => {
             document.body.classList.add('dark');
             localStorage.setItem('dark', 'true');
           }} onOff={e => {

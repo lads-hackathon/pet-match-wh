@@ -1,5 +1,4 @@
 .itemCard {
-    display: flex;
     padding: 10px;
     margin-bottom: 10px;
 
@@ -20,8 +19,7 @@
 }
 
 .itemImage {
-    /* width: 10vw; */
-    height: 10vw;
+    min-width: 10vw;
     padding-right: 10px;
 }
 

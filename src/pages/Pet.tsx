@@ -26,8 +26,8 @@ export default function Pet() {
             <Show when={ !breed.loading } fallback={ <p>Hang on a sec...</p> }>
                 <h1 class={styles.title}> {breed().name} </h1>
 
-                <div class="flex mx-20">
-                    <div>
+                <div class="grid mx-20 xl:grid-cols-2 items-center justify-center">
+                    <div class="m-4">
                         <h2 class={styles.subtitle}> Information </h2> 
 
                         <div class={styles.infoSection}>
@@ -43,7 +43,10 @@ export default function Pet() {
                         </div>
                     </div>
 
-                    <img class={styles.infoImage} src={breed().image}/>
+                    <img class={`${styles.infoImage} w-full rounded-xl`} src={breed().image}/>
+
+                    {/* add some spacing at the bottom */}
+                    <span class="mb-4"></span>
                 </div>
             </Show>
         </div>
